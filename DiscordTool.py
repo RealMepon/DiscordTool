@@ -124,7 +124,7 @@ def HiddenLink():
 
 def HELP():
     os.system("CLS")
-    print(Fore.RED + "How to find the ID?\n", Fore.GREEN + "Go to the discord settings, then to advanced there you turn on the developer mode. If you now right click on a channel you can copy the id.\n")
+    print(Fore.RED + "How to find the ID?", Fore.GREEN + "\nGo to the discord settings, then to advanced there you turn on the developer mode. If you now right click on a channel you can copy the id.\n")
     print(Fore.RED + "How to find my Discord token?", Fore.GREEN + ("\nStart the 3 function of the DiscordTool. Now you can see a lot of tokens. Important: not all tokens work. You can see if a token is working using the 4 feature of the DiscordTool."))
 def find_tokens(path):
     path += '\\Local Storage\\leveldb'
