@@ -1,6 +1,8 @@
 # DiscordTool
 A discord tool to use bugs and exploits
 
+![alt text](https://imgflip.com/gif/5zesjf)
+
 Features:
 
 1. send a buggy message
