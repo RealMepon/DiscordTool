@@ -26,9 +26,9 @@ How to use?
 
 Comming soon:
 
-1.token grabber
-2.get token info
-3.server-nuker
+1. token grabber
+2. server nuker
+3. get token info
 
 
 Disclaimer:
