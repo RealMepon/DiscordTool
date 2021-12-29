@@ -31,8 +31,8 @@ Comming soon:
 3. get token info
 
 
-
 Disclaimer:
 This program is for education only i am not responsible for any damage.
 
+credits: to the people who found the bugs
 
