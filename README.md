@@ -24,7 +24,7 @@ How to use?
 4. chose one of the options you see (Choose the "help" option to see how to use the tool)
 5. if you have any questions or bugs dm me on discord (Mepon#0127)
 
-Ideas for the future:
+Comming soon:
  -token grabber
  -get token info
  -server-nuker
