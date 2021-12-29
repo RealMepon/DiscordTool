@@ -25,9 +25,11 @@ How to use?
 5. if you have any questions or bugs dm me on discord (Mepon#0127)
 
 Comming soon:
+
  -token grabber
  -get token info
  -server-nuker
+
 
 Disclaimer:
 This program is for education only i am not responsible for any damage.
