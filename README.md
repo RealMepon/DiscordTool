@@ -1,7 +1,7 @@
 # DiscordTool
 A discord tool to use bugs and exploits
 
-![alt text](https://i.imgflip.com/5zesjf.gif)
+![alt text](https://i.ibb.co/52GCmN6/WM-Screenshots-20211229150555-2.png)
 
 Features:
 
