@@ -9,7 +9,7 @@ Features:
 4. check if a discord token is working
 5. make a fake stream
 6. send a empty message
-7. NitroGenertor xD
+7. NitroGenerator xD
 8. Webhook message spammer
 9. create a hidden link
 
