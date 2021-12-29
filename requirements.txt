@@ -1,0 +1,7 @@
+requests
+time
+discord
+random
+string
+slowprint
+colorama
