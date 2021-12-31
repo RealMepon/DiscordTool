@@ -14,7 +14,8 @@ Features:
 7. NitroGenerator xD
 8. Webhook message spammer
 9. create a hidden link
-10.Token-Grabber
+10. Create a TokenGrabber (.py|.exe)
+
 
 How to use?
 
