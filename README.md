@@ -14,7 +14,7 @@ Features:
 7. NitroGenerator xD
 8. Webhook message spammer
 9. create a hidden link
-
+10.Token-Grabber
 
 How to use?
 
@@ -26,9 +26,8 @@ How to use?
 
 Comming soon:
 
-1. token grabber
-2. server nuker
-3. get token info
+1. server nuker
+2. get token info
 
 
 Disclaimer:
